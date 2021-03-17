@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 #include <conio.h>
-#include <stdlib.h> //ini adalah perpustakaan untuk memanggil buku system("cls")&("pause").
+#include <stdlib.h>
+//ini adalah perpustakaan untuk memanggil buku system("cls")&("pause").
 
 main(){
 /* DEKLARASI */
