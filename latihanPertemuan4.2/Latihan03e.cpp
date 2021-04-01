@@ -14,9 +14,9 @@ int main()
     cout << "Hasil 2 (a==b && b>20) : " << (a==b && b>20) << endl;
     cout << "Hasil 3 (a>=b && b>20) : " << (a>=b && b>20) << endl;
     cout << "Hasil 4 (a>10 || b<20) : " << (a>10 || b<20) << endl;
-    cout << "Hasil 5 (a==b || b>20) : " << (a==b || b<20) << endl;
-    cout << "Hasil 6 (a>=b || b>20) : " << (a>=b || b<20) << endl;
-    cout << "Hasil 7 (a!=10 || b>20): " << (a!=10 || b<20) << endl;
+    cout << "Hasil 5 (a==b || b>20) : " << (a==b || b>20) << endl;
+    cout << "Hasil 6 (a>=b || b>20) : " << (a>=b || b>20) << endl;
+    cout << "Hasil 7 (a!=10 || b>20): " << (a!=10 || b>20) << endl;
 
     // Keluaran Identitas Mahasiswa.............................
     cout << "\n================================\n";
