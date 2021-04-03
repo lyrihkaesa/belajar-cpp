@@ -23,7 +23,7 @@ int main()
 
     // Keluaran Identitas Mahasiswa..........................
     cout << "\n================================\n";
-    cout << "Program 01 dibuat oleh         : \n";
+    cout << "Program 07 dibuat oleh         : \n";
     cout << "NIM    : A12.2020.06495" << endl;
     cout << "Nama   : Kukuh Setya Arumansyah" << endl;
 
