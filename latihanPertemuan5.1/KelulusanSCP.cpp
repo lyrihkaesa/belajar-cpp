@@ -1,7 +1,10 @@
+// #include <iostream>
 #include <iostream.h>
 #include <conio.h>
+// using namespace std;
 
 void main()
+// int main()
 {
     int ujian1, ujian2, rt;
     char ket[50] = "";
@@ -24,24 +27,24 @@ void main()
      strcpy(ket,"Nilai ujian 2 tidak boleh kurang dari 0");
     }
     else if(ujian1 >= 85) {
-	     if(ujian2 >=85){
+	     if(ujian2 >= 85) {
             strcpy(ket,"Lulus Seleksi Pegawai karena kedua nilai minimal 85");
            }
         else if(rt >= 90){
 				strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai >= 90");
         		}
         else {
-        		strcpy(ket,"Tidak memenuhi syarat 1");
+        		strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 2 kurang dari 80 dan rata-rata tidak 90");
         }}
-    else if(ujian1 < 85) {
-        if(rt >= 90){
+    else if(ujian1 >= 80) {
+        if(rt == 90){
             strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai 90");
            }
         else {
         		strcpy(ket,"Tidak memenuhi syarat 2");
         }}
     else {
-           strcpy(ket,"Tidak memenuhi syarat 3");
+           strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 kurang dari 80 dan rata-rata tidak 90.");
         }
     cout<<"Keterangan: "<<ket<<endl;
     cout<<"Rata-rata: "<< rt << " | " << ujian1 << " + " << ujian2 << " = " << (ujian1+ujian2) <<endl;
