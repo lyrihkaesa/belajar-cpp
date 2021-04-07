@@ -1,0 +1,29 @@
+#include <iostream.h>
+#include <conio.h>
+
+void main()
+{
+    int nilai;
+    char ket[1] = "";
+    
+    cout<<"Masukkan nilai: ";
+    cin>>nilai;
+
+    if(nilai >= 85 && nilai <= 100) {
+	   	strcpy(ket,"A");
+        }
+        else if(nilai >= 70) {
+        strcpy(ket,"B");
+        }
+        else if(nilai >= 60) {
+        strcpy(ket,"C");
+        }
+        else if(nilai >= 50) {
+        strcpy(ket,"D");
+        }
+        else if(nilai >= 0) {
+        strcpy(ket,"E");
+        }
+    cout<<"Nilai: "<<ket<<endl;
+    getch();
+}
