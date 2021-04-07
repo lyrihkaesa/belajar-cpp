@@ -12,16 +12,16 @@ void main()
     if(nilai >= 85 && nilai <= 100) {
 	   	strcpy(ket,"A");
         }
-        else if(nilai >= 70 && nilai <=85) {
+        else if(nilai >= 70 && nilai <85) {
         strcpy(ket,"B");
         }
-        else if(nilai >= 60 && nilai <=70) {
+        else if(nilai >= 60 && nilai <70) {
         strcpy(ket,"C");
         }
-        else if(nilai >= 50 && nilai <=60) {
+        else if(nilai >= 50 && nilai <60) {
         strcpy(ket,"D");
         }
-        else if(nilai >= 0 && nilai <=50) {
+        else if(nilai >= 0 && nilai <50) {
         strcpy(ket,"E");
         }
     cout<<"Nilai: "<<ket<<endl;
