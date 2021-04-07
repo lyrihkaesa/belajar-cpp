@@ -1,10 +1,7 @@
-// #include <iostream>
 #include <iostream.h>
 #include <conio.h>
-// using namespace std;
 
 void main()
-// int main()
 {
     int ujian1, ujian2, rt;
     char ket[50] = "";
@@ -41,7 +38,7 @@ void main()
             strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai 90");
            }
         else {
-        		strcpy(ket,"Tidak memenuhi syarat 2");
+        		strcpy(ket,"Tidak memenuhi syarat rata-rata 90");
         }}
     else {
            strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 kurang dari 80 dan rata-rata tidak 90.");
