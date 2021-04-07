@@ -3,13 +3,13 @@
 
 void main()
 {
-    int ujian1, ujian2, huu;
+    int ujian1, ujian2, rt;
     char ket[50] = "";
 
     cout<<"Masukkan nilai Ujian 1: "; cin>>ujian1;
     cout<<"Masukkan nilai Ujian 2: "; cin>>ujian2;
 
-    huu = (ujian1+ujian2)/2;
+    rt = (ujian1+ujian2)/2;
 
 	 if(ujian1 > 100) {
       strcpy(ket,"Nilai ujian 1 tidak boleh lebih dari 100");
@@ -27,14 +27,14 @@ void main()
 	     if(ujian2 >=85){
             strcpy(ket,"Lulus Seleksi Pegawai karena kedua nilai minimal 85");
            }
-        else if(huu >= 90){
+        else if(rt >= 90){
 				strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai >= 90");
         		}
         else {
         		strcpy(ket,"Tidak memenuhi syarat 1");
         }}
     else if(ujian1 < 85) {
-        if(huu >= 90){
+        if(rt >= 90){
             strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai 90");
            }
         else {
@@ -44,6 +44,6 @@ void main()
            strcpy(ket,"Tidak memenuhi syarat 3");
         }
     cout<<"Keterangan: "<<ket<<endl;
-    cout<<"Rata-rata: "<< huu << " | " << ujian1 << " + " << ujian2 << " = " << (ujian1+ujian2) <<endl;
+    cout<<"Rata-rata: "<< rt << " | " << ujian1 << " + " << ujian2 << " = " << (ujian1+ujian2) <<endl;
     getch();
 }
