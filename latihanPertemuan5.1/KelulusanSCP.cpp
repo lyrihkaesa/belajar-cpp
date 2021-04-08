@@ -46,18 +46,18 @@ void main()
     }
     else if(ujian1 >= 80) 
     {
-        if(rt == 90)
+        if(rt >= 90)
         {
-            strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai 90");
+            strcpy(ket,"Lulus Seleksi Pegawai dengan nilai rata-rata 90");
         }
         else
         {
-            strcpy(ket,"Tidak memenuhi syarat rata-rata 90");
+            strcpy(ket,"Tidak memenuhi syarat nilai rata-rata 90");
         }
     }
     else 
     {
-        strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 kurang dari 80 dan rata-rata tidak 90.");
+        strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 kurang dari 80 dan rata-rata tidak 90");
     }
 
     // Output
