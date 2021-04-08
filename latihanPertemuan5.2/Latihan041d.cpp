@@ -1,21 +1,8 @@
-#include <iostream>
+#include <iostream.h>
 #include <conio.h>
 #include <stdio.h>
-#include <windows.h>
-using namespace std;
 
-void gotoxy(int x, int y)
-{
-    HANDLE hConsoleOutput;
-    COORD dwCursorPosition;
-    cout.flush();
-    dwCursorPosition.X = x;
-    dwCursorPosition.Y = y;
-    hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleCursorPosition(hConsoleOutput,dwCursorPosition);
-}
-
-int main()
+void main()
 {
     char nama[20];
     char bagian[20];
