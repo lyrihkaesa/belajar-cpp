@@ -27,27 +27,22 @@ void main()
     else if(ujian2 < 0) {
         strcpy(ket,"Nilai ujian 2 tidak boleh kurang dari 0");
     }
-    else if(ujian1 >= 85) {
-        if(ujian2 >= 85) {
-            strcpy(ket,"Lulus Seleksi Pegawai karena kedua nilai minimal 85");
-        }
-        else if(rt >= 90) {
+    else if(ujian2,ujian1 >= 85){
+        strcpy(ket,"Lulus Seleksi Pegawai karena kedua nilai minimal 85");
+    }
+    else if(ujian1,ujian2 >=85){
+        strcpy(ket,"Lulus Seleksi Pegawai karena kedua nilai minimal 85");
+    }
+    else if(ujian1,ujian2 >= 80) {
+        if(rt >= 90) {
             strcpy(ket,"Lulus Seleksi Pegawai dengan rata-rata nilai >= 90");
         }
         else {
-            strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 2 kurang dari 80 dan rata-rata tidak 90");
-        }
-    }
-    else if(ujian1 >= 80) {
-        if(rt >= 90) {
-            strcpy(ket,"Lulus Seleksi Pegawai dengan nilai rata-rata 90");
-        }
-        else {
-            strcpy(ket,"Tidak memenuhi syarat nilai rata-rata 90");
+            strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 & 2 kurang dari 80 dan rata-rata tidak 90");
         }
     }
     else {
-        strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 kurang dari 80 dan rata-rata tidak 90");
+        strcpy(ket,"Tidak memenuhi syarat karena nilai ujian 1 & 2 kurang dari 80 dan rata-rata tidak 90");
     }
 
     // Keluaran

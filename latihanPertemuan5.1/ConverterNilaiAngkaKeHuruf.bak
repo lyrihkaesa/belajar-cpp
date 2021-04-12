@@ -3,12 +3,14 @@
 
 void main()
 {
+    // Deklarasi
     int nilai;
     char ket[38] = "Input Anda Bukan Angka dari 0 s.d 100";
 
-    cout<<"Masukkan nilai: ";
-    cin>>nilai;
+    // Masukan
+    cout<<"Masukkan nilai: "; cin>>nilai;
 
+    // Struktur Kontrol Keputusan
     if(nilai >= 85 && nilai <= 100) {
 	   	strcpy(ket,"A");
         }
@@ -24,6 +26,9 @@ void main()
         else if(nilai >= 0 && nilai <50) {
         strcpy(ket,"E");
         }
+    
+    // Keluaran
     cout<<"Nilai: "<<ket<<endl;
+    
     getch();
 }
