@@ -21,21 +21,22 @@ void main()
     } while (strcmp("y", lagi) == 0);
 
     int no, len = a, brs = 3, klm = 0;
-    // cetak data.................................
+    // Cetak Data.................................
     clrscr();
+    // Output Tambahan "Total"...............................................................
     cout<<"No NIP        Nama                           Gaji       Lembur      Total     \n";
     cout<<"------------------------------------------------------------------------------\n";
     for (int pss = 0; pss < len; pss++)
     {
         no = pss + 1;
-        // Output Tambahan
+        // Proses Tambahan "Total".........................
         total = gaji[pss] + lembur[pss];
         gotoxy((klm+1), brs); cout<<no;
         gotoxy((klm+4), brs); cout<<nip[pss];
         gotoxy((klm+15), brs); cout<<nama[pss];
         gotoxy((klm+46), brs); cout<<gaji[pss];
         gotoxy((klm+57), brs); cout<<lembur[pss];
-        // Output Tambahan
+        // Output Tambahan "Total".........................
         gotoxy((klm+69), brs); cout<<total;
         brs++;
     }
