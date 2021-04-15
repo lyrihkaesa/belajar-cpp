@@ -17,6 +17,7 @@ void main ()
         gotoxy(klm, brs++); cout<<"==========================================";
         gotoxy(klm, brs++); cout<<"1. NIP            :                       ";
         gotoxy(klm, brs++); cout<<"2. Nama           :                       ";
+        // Tambahan Jenis Kelamin..............................................
         gotoxy(klm, brs++); cout<<"3. Jenis Kelamin  :                       ";
         gotoxy(klm, brs++); cout<<"4. Bagian         :                       ";
         gotoxy(klm, brs++); cout<<"5. Jml. Anak      :                       ";
@@ -24,6 +25,7 @@ void main ()
         gotoxy(klm, brs++); cout<<"   Tunj. Anak     :                       ";
         gotoxy(klm, brs++); cout<<"                  ======================== +";
         gotoxy(klm, brs++); cout<<"   Total          :                       ";
+        // Tambahan Pajak & Terima.............................................
         gotoxy(klm, brs++); cout<<"   Pajak          :                       ";
         gotoxy(klm, brs++); cout<<"                  ======================== -";
         gotoxy(klm, brs++); cout<<"   Terima         :                       ";
@@ -36,7 +38,7 @@ void main ()
         gotoxy(klmi, brs++); cin>>anak;
         gotoxy(klmi, brs++); cin>>gaji;
 
-        // hitung tunjangan anak...................
+        // Hitung tunjangan anak...................
         if (anak > 3)
             tanak = 3 * 100000;
         else
@@ -44,6 +46,7 @@ void main ()
         
         total = gaji + tanak;
 
+        // Hitung pajak & terima...................
         if (total > 1000000)
             pajak = total * 0.05;
         else
@@ -54,6 +57,7 @@ void main ()
         gotoxy(klmi, brs++); cout<<tanak;
         brs++;
         gotoxy(klmi, brs++); cout<<total;
+        // Keluaran pajak & terima.................
         gotoxy(klmi, brs++); cout<<pajak;
         brs++;
         gotoxy(klmi, brs++); cout<<terima;
