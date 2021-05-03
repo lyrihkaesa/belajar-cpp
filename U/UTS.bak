@@ -1,0 +1,39 @@
+#include <iostream.h>
+#include <stdio.h>
+#include <conio.h>
+
+char d[200] = "_________________________________________________________________________________________________________\n";
+char nip[25], nama[25], jenis_kelamin[1];
+float status, golongan, jabatan, gaji_pokok, tunj_istri, tunj_anak, tunj_jabatan, gaji_kotor, pajak, biaya_jabatan, gaji_bersih;
+
+void main()
+{
+    cout<<d<<"\nPT. Terang Benerang\nJl. Merdeka Raya 17\nSemarang\n"<<d;
+    int baris = 7, kolom = 5;
+    gotoxy((kolom+50), baris); cout<<"Input Gaji Pegawai";
+    baris++;
+    gotoxy(kolom, (baris+1)); cout<<"1. NIP            = "; gets(nip);
+    gotoxy(kolom, (baris+2)); cout<<"2. Nama           = "; gets(nama);
+    gotoxy(kolom, (baris+3)); cout<<"3. Jenis Kelamin  = "; gets(jenis_kelamin);
+    gotoxy(kolom, (baris+4)); cout<<"4. Status         = "; cin>>status;
+    gotoxy(kolom, (baris+5)); cout<<"5. Golongan       = "; cin>>golongan;
+    gotoxy(kolom, (baris+6)); cout<<"6. Jabatan        = "; cin>>jabatan;
+    gotoxy(kolom, (baris+7)); cout<<"   Gaji Pokok     = 1234567890123456789012345"; // <<gaji_pokok;
+    
+    
+    // Keluar (Output) Program...............................................
+    kolom = kolom + 50;
+    gotoxy(kolom, (baris+1)); cout<<"Tunjangan Istri   = 1234567890123456789012345";
+    gotoxy(kolom, (baris+2)); cout<<"Tunjangan Anak    = ";
+    gotoxy(kolom, (baris+3)); cout<<"Tunjangan Jabatan = ";
+    gotoxy(kolom, (baris+4)); cout<<"Gaji Kotor        = ";
+    gotoxy(kolom, (baris+5)); cout<<"Pajak             = ";
+    gotoxy(kolom, (baris+6)); cout<<"Biaya Jebatan     = ";
+    gotoxy(kolom, (baris+7)); cout<<"Gaji Bersih       = ";
+
+    int koloma = 105, barisa;
+    for (barisa = 20; barisa > 0; barisa--) {
+        gotoxy(koloma, barisa); cout<<"|";
+    }
+    getch();
+}

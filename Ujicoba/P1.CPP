@@ -3,12 +3,8 @@
 
 void main()
 {
-	int i (0);
-   do
-   {
-    	cout << i << endl;
-      i++;
-   }while(i <= 10);
-   cout<<"================= +"<<endl;
+	for (int i = 100; i > 0; i--)
+   if (i%2==1)
+   cout<<i<<endl;
    getch();
 }
