@@ -1,9 +1,21 @@
-#include <iostream.h>
+#include <iostream>
 #include <conio.h>
 #include <stdio.h>
+#include <windows.h>
+#include <stdlib.h>
+
+using namespace std;
+
+COORD coord = {0,0};
+
+void gotoxy(int x, int y) {
+		coord.X = x;
+		coord.Y = y;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
 
 struct spgw {
-    char nip[5], x, nama[30], jeniskel;
+    char nip[5], x, nama[30], jeniskel[11];
     int agama, anak, gaji;
 };
 
@@ -11,11 +23,19 @@ spgw datapgw[20];
 
 //deklarasi variabel global............................
 int a = 0; // counter data index
-char ketjk[10], ketagama[15];
+char ketagama[15];
 int tanak, terima;
 int brs, klm, klmi; // pengaturan baris dan kolom
 
 //deklarasi fungsi .....................................
+// membuat garis
+void garis(int z, int y) {
+    int x = 100, klmg = z;
+    for (int i = 0; i < x; i++) {
+        gotoxy(klmg++,y); cout << "=";
+    }
+    brs++;
+}
 // menghitung jumlah char
 int jml(const char *temp) {
     int x = 0;
@@ -25,10 +45,11 @@ int jml(const char *temp) {
 
 // fungsi tampilan input
 void tampilan() {
-    clrscr();
+    // clrscr();
+    system("cls");
     brs = 4, klm = 10, klmi = klm + 27;
     gotoxy(klm, brs++); cout << "Input Data Pegawai";
-    gotoxy(klm, brs++); cout << "==============================";
+    garis(klm, brs);
     gotoxy(klm, brs++); cout << "1. NIP : ";
     gotoxy(klm, brs++); cout << "2. Nama : ";
     gotoxy(klm, brs++); cout << "3. Jenis Kelamin [L/P] : ";
@@ -61,11 +82,13 @@ void isinama() {
 void isijeniskel() {
     gotoxy(klmi, brs); cout << ". ";
     gotoxy(klmi, brs); cin >> datapgw[a].jeniskel;
-    if (datapgw[a].jeniskel == 76 || datapgw[a].jeniskel == 108)
-        strcpy(ketjk, "Laki-laki");
+    if (strcmp("l", datapgw[a].jeniskel) == 0 || strcmp("L", datapgw[a].jeniskel) == 0)
+        strcpy (datapgw[a].jeniskel, "Laki-Laki");
+    else if (strcmp("p", datapgw[a].jeniskel) == 0 || strcmp("P", datapgw[a].jeniskel) == 0)
+        strcpy (datapgw[a].jeniskel, "Perempuan");
     else
-        strcpy(ketjk, "Perempuan");
-    gotoxy(klmi, brs++); cout << ketjk;
+        strcpy (datapgw[a].jeniskel, "None");
+    gotoxy(klmi, brs++); cout << datapgw[a].jeniskel;
 }
 
 void isiagama() {
@@ -111,10 +134,10 @@ void hitungterima() {
 
 // fungsi cetak data.................................
 void cetakjudullap() {
-    clrscr();
+    system("cls");
     cout << "Laporan Gaji Pegawai\n";
     //12345678901234567890123456789012345678901234567890
-    cout << "--------------------------------------------------\n";
+    garis(0, 2);
     cout << " No NIP Nama Jenis Kel. Anak ";
     cout << " Tunj. Anak Terima\n";
     cout << "--------------------------------------------------\n";
@@ -130,11 +153,7 @@ void cetakdata() {
         gotoxy((klm+1), brs); cout << no;
         gotoxy((klm+5), brs); cout << datapgw[pss].nip;
         gotoxy((klm+15), brs); cout << datapgw[pss].nama;
-        if (datapgw[pss].jeniskel == 76 || datapgw[pss].jeniskel == 108)
-            strcpy(ketjk, "Laki-laki");
-        else
-            strcpy(ketjk, "Perempuan");
-        gotoxy((klm+33), brs); cout << ketjk;
+        gotoxy((klm+33), brs); cout << datapgw[pss].jeniskel;
         gotoxy((klm+46), brs); cout << datapgw[pss].anak;
         if (datapgw[pss].anak > 3)
             tanak = 3 * 5000;
@@ -154,7 +173,7 @@ void cetakdata() {
 }
 
 //program utama .....................................
-void main() {
+int main() {
     char tanya;
     //isi data.......................................
     do {
@@ -175,10 +194,12 @@ void main() {
     } while (tanya == 89 || tanya == 121);
     //cetak data......................................
     gotoxy(klm, brs);cout << " ";
-    gotoxy(klm, brs);cout << "Cetak Data [y/t] : ";
+    gotoxy(klm, brs);cout << "Cetak Data [y/t] :      ";
     cin >> tanya;
     if (tanya == 89 || tanya == 121) {
         cetakdata();
     }
-    getch();
+    // getch();
+    system("pause");
+    return 0;
 }
