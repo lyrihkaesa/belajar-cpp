@@ -15,6 +15,7 @@ void main () {
     for(int i = 0; i<n-1; i++) {
         cout<<"Tahab ( "<<(i+1) << " )  : \n";
         for(int j = i+1; j<n; j++) {
+            cout << x[i] << " < " << x[j];
             if(x[i] > x[j]) {
                 temp = x[i];
                 x[i] = x[j];
