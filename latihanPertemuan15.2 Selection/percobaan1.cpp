@@ -22,24 +22,29 @@ void selectionSort(char arr[][50], int n){
             strcpy(minStr, arr[j]);
             mIndex = j;
             // cout << "hasil awal minSTR, arr[j]: "<< minStr << ", " << arr[i] << ", mIndex: " << mIndex << "\n";
-        }
-            for (int a=0;a<n;a++) {
-               // cout << arr[a] << "v";
-               cout << minStr << ", ";
-            }
-            cout << "\n";
+         }
+            // for (int a=0;a<n;a++) {
+            //    // cout << arr[a] << "v";
+            //    cout << minStr << ", ";
+            // }
+            // cout << "\n";
       }
+         for (int a=0;a<n;a++) {
+               cout << arr[a] << " v ";
+               cout << minStr << ", ";
+         }
+      cout << "\n";
       // Swap the minimum with the first element
       if (mIndex != i){
-         char temp[50];
-         strcpy(temp, arr[i]); //swap item[pos] and item[i]
-         strcpy(arr[i], arr[mIndex]);
-         strcpy(arr[mIndex], temp);
-        }
+            char temp[50];
+            strcpy(temp, arr[i]); //swap item[pos] and item[i]
+            strcpy(arr[i], arr[mIndex]);
+            strcpy(arr[mIndex], temp);
+      }
    }
 }
 void main(){
-   char arr[][50] = {"6", "8", "7" ,"4", "2", "5", "3"};
+   char arr[][50] = {"Kirik", "Babi", "Asu" ,"Tuyul", "Slero", "Genderuwo", "Kunti"};
    int n = sizeof(arr)/sizeof(arr[0]);
    cout << n << " | " << sizeof(arr) << " || " << sizeof(arr[0]) << endl;
    int i;
@@ -51,7 +56,8 @@ void main(){
    cout << endl;
    selectionSort(arr, n);
    cout << "\nSelection Sorted is::\n";
-   for (i = 0; i < n; i++)
+   // for (i = n-1; i >= 0; i--) // Des
+   for (i = 0; i < n; i++) //Ass
       cout << i << ": " << arr[i] << endl;
     getch();
 }

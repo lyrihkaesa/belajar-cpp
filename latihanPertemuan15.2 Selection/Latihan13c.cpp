@@ -1,7 +1,7 @@
-#include <conio.h>
-#include <stdio.h>
-#include <iostream.h>
-#include <stdlib.h> 
+#include <conio.h> // getch()
+#include <stdio.h> // gets()
+#include <iostream.h> // cout, cin
+// #include <stdlib.h> 
 
 struct spgw {
     char nip[5], x, nama[30], jeniskel;
@@ -254,19 +254,26 @@ void urutselection() {
     spgw tempdata; // penampungan sementara.............
     int n = a; // jumlah data..............
     for(int i=0;i<n-1;i++) {
+        int mIndex = i;
+        tempdata = datapgw[i];
         for(int j=i+1;j<n-i;j++) {
-            // int g = atoi(datapgw[i].nip);
-            // int h = atoi(datapgw[j].nip);
+            // int g = atoi(datapgw[i].nip); // mengubah char ke int
+            // int h = atoi(datapgw[j].nip); // mengubah char ke int
             // lakukkan penukaran data.........
-            if(strcmp(datapgw[j].nip, datapgw[j].nip) > 0) {
-                tempdata = datapgw[i];
-                datapgw[i] = datapgw[j];
-                datapgw[j] = tempdata;
+            if(strcmp(tempdata.nip, datapgw[j].nip) > 0) {
+                tempdata = datapgw[j];
+                mIndex = j;
             }
         }
+        if (mIndex != i){
+            spgw temp;
+            temp = datapgw[i]; //swap item[pos] and item[i]
+            datapgw[i] = datapgw[mIndex];
+            datapgw[mIndex] = temp;
+        }
     }
-    // mencetak keterangan (sudah diurutkan).........
     brs = 20; klm = 20;
+    // mencetak keterangan (sudah diurutkan).........
     gotoxy(klm, brs++); cout << "Data sudah diurutkan! (Selection Sort)";
     getch();
 }
