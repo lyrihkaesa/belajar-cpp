@@ -22,10 +22,8 @@ void entityProp(int kolom, int baris);
 void templateUtama();
 void menuUtama(int kolom, int baris);
 void pilihanMenu(int kolom, int baris);
-void editData(int kolom, int baris);
 void tampilanEdit(int kolom, int baris);
 void tampilanHitungHarga(int kolom, int baris);
-void editDataLanjutan(int kolom, int baris);
 int jumlahHuruf(const char *temp);
 void jumlahTitik(int kolom, int baris, int mxHuruf);
 void jumlahSpasi(int kolom, int baris, int mxHuruf);
@@ -43,6 +41,9 @@ void prosesGajiKotor(int kolom, int baris);
 void prosesPajak(int kolom, int baris);
 void prosesBiayaJabatan(int kolom, int baris);
 void prosesGajiBersih(int kolom, int baris);
+void laporanGaji(int kolom, int baris);
+void judulLaporan(int kolom, int baris);
+void cetakData(int kolom, int baris);
 
 // Deklarasi Garis Utama
 int gh = 83, gv = 20;
@@ -57,9 +58,9 @@ void main() {
         switch (pilih) {
             case 1 : inputData(5, 8);
             break;
-            case 2 : editDataLanjutan(5, 8);
+            case 2 : cout << "unknow";
             break;
-            case 3 : cout << "unknow";
+            case 3 : laporanGaji(5, 8);
             break;
         }
     } while (pilih != 4);
@@ -102,8 +103,8 @@ void menuUtama(int kolom, int baris){
     gotoxy(kolom, baris++); cout << "Menu Utama";
     baris++;
     gotoxy(kolom, baris++); cout << "1. Input Data";
-    gotoxy(kolom, baris++); cout << "2. Edit/koreksi Data";
-    gotoxy(kolom, baris++); cout << "3. Tampilkan Data";
+    gotoxy(kolom, baris++); cout << "2. Urutkan Data";
+    gotoxy(kolom, baris++); cout << "3. Laporan Gaji Pegawai";
     gotoxy(kolom, baris++); cout << "4. Exit (Keluar)";
     garisH(gh, (gv-3));
 }
@@ -130,29 +131,6 @@ void tampilanHitungHarga(int kolom, int baris){
     gotoxy(kolom, baris++); cout << "Gaji Bersih          = ";
 }
 
-// Tampilkan Template Sub
-void editData(int kolom, int baris){
-    clrscr();
-    templateUtama();
-    gotoxy(kolom, baris++); cout << "Edit Data Pembayaran Pelanggan";
-    baris++;
-    gotoxy(kolom, baris++); cout << "Masukan Kode Pelanggan: ";
-    getch();
-}
-
-void editDataLanjutan(int kolom, int baris){
-    clrscr();
-    templateUtama();
-    gotoxy((kolom+20), baris++); cout << "Edit/Koreksi Data Pembayaran Pelanggan";
-    baris++;
-    tampilanEdit(kolom, baris);
-    int kolomA = kolom + maxHuruf + 1 + 25; // 2 adalah spasi antar kolom, 25 panjang huruf tertinggi di tampilanEdit() yaitu (24+1);
-    tampilanHitungHarga(kolomA, baris++);
-    int barisA = baris + 8;
-    gotoxy(kolom, barisA); cout << "Koreksi Data [1,2,3,4,5=exit] : ";
-    getch();
-}
-
 void inputData(int kolom, int baris){
     char tanya;
     do {
@@ -167,7 +145,7 @@ void inputData(int kolom, int baris){
         ketikInputData((kolom+23), barisF);
         //isi data berikutnya [y]....................
         outputData((kolom+65), barisF);
-        gotoxy(kolom, (barisF+8)); cout << "Ulangi Lagi : "; cin >> tanya;
+        gotoxy(kolom, (barisF+8)); cout << "Ulangi Lagi [Y/T]: "; cin >> tanya;
         a++;
     } while (tanya == 89 || tanya == 121);
 }
@@ -185,7 +163,7 @@ void ketikInputData(int kolom, int baris){
 
 // Output Proses Pegawai
 void outputData(int kolom, int baris){
-    if(strcmp("Laki-Laki", dataPegawai[a].jenisKelamin) == 0){
+    if(strcmp("Pria", dataPegawai[a].jenisKelamin) == 0){
         prosesTunjanganIstri(kolom, baris++);
         prosesTunjanganAnak(kolom, baris++);
     } else {
@@ -198,6 +176,53 @@ void outputData(int kolom, int baris){
     prosesGajiBersih(kolom, baris++);
 }
 
+void laporanGaji(int kolom, int baris){
+    clrscr();
+    templateUtama();
+    gotoxy((kolom+20), baris++); cout << "Laporan Gaji Pegawai";
+    baris++;
+    garisH(gh, 10);
+    garisH(gh, 12);
+    judulLaporan(3, 11);
+    cetakData(3, 13);
+    getch();
+}
+
+void judulLaporan(int kolom, int baris){
+    gotoxy(kolom, baris); cout << "No.";
+    kolom += 5;
+    gotoxy(kolom, baris); cout << "NIP ";
+    kolom += 6;
+    gotoxy(kolom, baris); cout << "Gaji Pokok";
+    kolom += 12;
+    gotoxy(kolom, baris); cout << "Tunj. Istri";
+    kolom += 13;
+    gotoxy(kolom, baris); cout << "Tunj. Anak";
+    kolom += 12;
+    gotoxy(kolom, baris); cout << "G. Kotor";
+    kolom += 10;
+    gotoxy(kolom, baris); cout << "G. Bersih";
+}
+
+void cetakData(int kolom, int baris){
+    int len = a;
+    for (int i=0; i < len; i++) {
+    gotoxy(kolom, baris); cout << (i+1);
+    kolom += 5;
+    gotoxy(kolom, baris); cout << dataPegawai[i].nip;
+    kolom += 6;
+    gotoxy(kolom, baris); cout << dataPegawai[i].gajiPokok;
+    kolom += 12;
+    gotoxy(kolom, baris); cout << dataPegawai[i].tunjIstri;
+    kolom += 13;
+    gotoxy(kolom, baris); cout << dataPegawai[i].tunjAnak;
+    kolom += 12;
+    gotoxy(kolom, baris); cout << dataPegawai[i].gajiKotor;
+    kolom += 10;
+    gotoxy(kolom, baris); cout << dataPegawai[i].gajiBersih;
+    baris++;
+    }
+}
 
 // Proses Memasukan Data (Input Data)
 // Menghitung Jumlah Huruf (Jumlah Character) yang dimasukan
@@ -232,7 +257,7 @@ void isiNIP(int kolom, int baris, int mxHuruf){
 void isiNamaPegawai(int kolom, int baris, int mxHuruf){
     jumlahTitik(kolom, baris, mxHuruf);
     gotoxy(kolom, baris); gets(dataPegawai[a].namaPegawai);
-    if(jumlahHuruf(dataPegawai[a].namaPegawai) < 5) {
+    if(jumlahHuruf(dataPegawai[a].namaPegawai) < 4) {
         isiNamaPegawai(kolom, baris, mxHuruf);
     }
 }
@@ -242,10 +267,10 @@ void isiJenisKelamin(int kolom, int baris){
     jumlahSpasi(kolom++, baris, 16);
     char input[2];
     gotoxy(--kolom, baris); gets(input);
-    if(strcmp("L", input) == 0 || strcmp("l", input) == 0){
-        strcpy(dataPegawai[a].jenisKelamin,"Laki-Laki");
-    } else if(strcmp("P", input) == 0 || strcmp("p", input) == 0){
-        strcpy(dataPegawai[a].jenisKelamin,"Perempuan");
+    if(strcmp("P", input) == 0 || strcmp("p", input) == 0){
+        strcpy(dataPegawai[a].jenisKelamin,"Pria");
+    } else if(strcmp("W", input) == 0 || strcmp("w", input) == 0){
+        strcpy(dataPegawai[a].jenisKelamin,"Wanita");
     } else {
         isiStatus(kolom, baris);
     }
