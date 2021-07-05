@@ -9,7 +9,7 @@ void urutbuble(int arr[], int n) {
         for(int j=0;j<n-i-1;j++) {
             // lakukkan penukaran data.........
             cout << "index-" << j << ": " << arr[j] << " > " << arr[j+1] << " :" << (j+1) << "-index" << endl;
-            if(arr[j] > arr[j+1]) {
+            if(arr[j] > arr[j+1]) { // jika ingin desc "<", asc ">"
                 tempData = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = tempData;
@@ -50,7 +50,7 @@ void urutbublech(char arr[][jumlah_huruf], int n) {
 
 
 void main() {
-    int arr[] = {97, 87, 27, 77, 17, 67, 57, 37, 47};
+    int arr[] = {45, 7, 39, 37, 47, 65, 77, 97, 27};
     int n = sizeof(arr)/sizeof(arr[0]);
     cout << n << " | " << sizeof(arr) << " || " << sizeof(arr[0]) << endl;
     cout<<"Given String is:: \n";

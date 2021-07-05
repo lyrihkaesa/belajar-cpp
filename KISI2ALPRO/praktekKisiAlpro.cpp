@@ -53,7 +53,7 @@ void isinip() {
 }
 
 void isinama() {
-    gotoxy(klmi, brs); cout << "...................... ";
+    gotoxy(klmi, brs); cout << "..................... ";
     gotoxy(klmi, brs++); gets(datapgw[a].nama);
     if (jml(datapgw[a].nama) < 5) {
         brs--;
@@ -146,39 +146,39 @@ void tampilkanterima() {
 // fungsi cetak data.................................
 void cetakjudullap() {
     clrscr();
+    cout << "Dibuat : A12.2020.06495 & Kukuh Setya Arumansyah\n\n";
     cout << "Laporan Gaji Pegawai\n";
     
     //12345678901234567890123456789012345678901234567890
     cout << garispanjang;
-    cout << " No  NIP       Nama                   Jenis Kel.   Anak";
-    cout << "   Tunj. Anak  T.Transpot";
-    cout << "  Tunj.Kelgr. Terima\n";
+    cout << " No NIP   Nama                  Jenis Kel. Anak";
+    cout << " Tunj. Anak T.Transpot";
+    cout << " Tunj.Kelgr. Terima\n";
     cout << garispanjang;
 }
 
 void cetakdata() {
     int no, len = a;
-    brs = 5; klm = 1;
+    brs = 7; klm = 1;
     int totalgaji = 0;
     cetakjudullap();
     for (int pss=0; pss < len; pss++) {
         no = pss + 1;
         gotoxy((klm+1), brs); cout << no;
-        gotoxy((klm+5), brs); cout << datapgw[pss].nip;
-        gotoxy((klm+15), brs); cout << datapgw[pss].nama;
+        gotoxy((klm+4), brs); cout << datapgw[pss].nip;
+        gotoxy((klm+10), brs); cout << datapgw[pss].nama;
         if (datapgw[pss].jeniskel == 76 || datapgw[pss].jeniskel == 108)
             strcpy(ketjk, "Laki-laki");
         else 
             strcpy(ketjk, "Perempuan");
-        gotoxy((klm+38), brs); cout << ketjk;
-        gotoxy((klm+51), brs); cout << datapgw[pss].anak;
+        gotoxy((klm+32), brs); cout << ketjk;
+        gotoxy((klm+43), brs); cout << datapgw[pss].anak;
         tanak = hitungtanak(datapgw[pss].anak);
-        gotoxy((klm+58), brs); cout << tanak;
-        gotoxy((klm+70), brs); cout << datapgw[pss].ttranspot;
-        gotoxy((klm+82), brs); cout << datapgw[pss].tkel;
+        gotoxy((klm+48), brs); cout << tanak;
+        gotoxy((klm+59), brs); cout << datapgw[pss].ttranspot;
+        gotoxy((klm+70), brs); cout << datapgw[pss].tkel;
         terima = hitungterima(datapgw[pss].gaji, tanak, datapgw[pss].ttranspot, datapgw[pss].tkel);
-        klm = klm+12;
-        gotoxy((klm+94), brs); cout << terima;
+        gotoxy((klm+82), brs); cout << terima;
         totalgaji += terima;
         brs++;
     }
